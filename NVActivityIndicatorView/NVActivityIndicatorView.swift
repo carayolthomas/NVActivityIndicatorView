@@ -238,7 +238,7 @@ public enum NVActivityIndicatorType: Int {
     case AudioEqualizer
     
     private static let allTypes = (Blank.rawValue ... Orbit.rawValue).map{ NVActivityIndicatorType(rawValue: $0)! }
-
+    
     private func animation() -> NVActivityIndicatorAnimationDelegate {
         switch self {
         case .Blank:
@@ -328,7 +328,7 @@ public class NVActivityIndicatorView: UIView {
     
     /// Animation type, value of NVActivityIndicatorType enum.
     public var type: NVActivityIndicatorType = NVActivityIndicatorView.DEFAULT_TYPE
-
+    
     @available(*, unavailable, message="This property is reserved for Interface Builder. Use 'type' instead.")
     @IBInspectable var typeName: String {
         get {
@@ -343,16 +343,13 @@ public class NVActivityIndicatorView: UIView {
             }
         }
     }
-
+    
     /// Color of activity indicator view.
     @IBInspectable public var color: UIColor = NVActivityIndicatorView.DEFAULT_COLOR
-
-    /// Color of activity indicator view.
-    @IBInspectable public var dimBackgroundColor: UIColor = NVActivityIndicatorView.DEFAULT_BACKGROUND_COLOR
     
     /// Padding of activity indicator view.
     @IBInspectable public var padding: CGFloat = NVActivityIndicatorView.DEFAULT_PADDING
-
+    
     /// Current status of animation, this is not used to start or stop animation.
     public var animating: Bool = false
     
@@ -386,11 +383,10 @@ public class NVActivityIndicatorView: UIView {
      
      - returns: The activity indicator view.
      */
-    public init(frame: CGRect, type: NVActivityIndicatorType? = nil, color: UIColor? = nil, backgroundColor: UIColor? = nil, padding: CGFloat? = nil) {
+    public init(frame: CGRect, type: NVActivityIndicatorType? = nil, color: UIColor? = nil, padding: CGFloat? = nil) {
         self.type = type ?? NVActivityIndicatorView.DEFAULT_TYPE
         self.color = color ?? NVActivityIndicatorView.DEFAULT_COLOR
         self.padding = padding ?? NVActivityIndicatorView.DEFAULT_PADDING
-        self.dimBackgroundColor = backgroundColor ?? NVActivityIndicatorView.DEFAULT_BACKGROUND_COLOR
         super.init(frame: frame)
     }
     

@@ -16,11 +16,11 @@ import UIKit
 public protocol NVActivityIndicatorViewable { }
 
 public extension NVActivityIndicatorViewable where Self: UIViewController {
-
+    
     private var activityRestorationIdentifier: String {
         return "NVActivityIndicatorViewContainer"
     }
-
+    
     /**
      Create a activity indicator view with specified frame, type, color, background color and padding and start animation.
      
@@ -31,10 +31,10 @@ public extension NVActivityIndicatorViewable where Self: UIViewController {
      - parameter backgroundColor: background color of activity indicator view. Default color is black with 0.5 alpha.
      - parameter padding: view's padding. Default padding is 0.
      */
-    public func startActivityAnimating(size: CGSize? = nil, message: String? = nil, type: NVActivityIndicatorType? = nil, color: UIColor? = nil, backgroundColor: UIColor? = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5), padding: CGFloat? = nil) {
+    public func startActivityAnimating(size: CGSize? = nil, message: String? = nil, type: NVActivityIndicatorType? = nil, color: UIColor? = nil, backgroundColor: UIColor? = nil, padding: CGFloat? = nil) {
         let activityContainer: UIView = UIView(frame: view.bounds)
         
-        activityContainer.backgroundColor = backgroundColor
+        activityContainer.backgroundColor = backgroundColor ?? NVActivityIndicatorView.DEFAULT_BACKGROUND_COLOR
         activityContainer.restorationIdentifier = activityRestorationIdentifier
         
         let actualSize = size ?? NVActivityIndicatorView.DEFAULT_BLOCKER_SIZE
@@ -42,7 +42,6 @@ public extension NVActivityIndicatorViewable where Self: UIViewController {
             frame: CGRectMake(0, 0, actualSize.width, actualSize.height),
             type: type,
             color: color,
-            backgroundColor: backgroundColor,
             padding: padding)
         
         activityIndicatorView.center = activityContainer.center
@@ -65,7 +64,7 @@ public extension NVActivityIndicatorViewable where Self: UIViewController {
         
         view.addSubview(activityContainer)
     }
-
+    
     /**
      Stop animation and remove from view hierarchy.
      */
