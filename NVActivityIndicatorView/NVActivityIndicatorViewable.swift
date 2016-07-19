@@ -42,6 +42,7 @@ public extension NVActivityIndicatorViewable where Self: UIViewController {
             frame: CGRectMake(0, 0, actualSize.width, actualSize.height),
             type: type,
             color: color,
+            backgroundColor: backgroundColor,
             padding: padding)
         
         activityIndicatorView.center = activityContainer.center
