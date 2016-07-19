@@ -317,6 +317,9 @@ public class NVActivityIndicatorView: UIView {
     /// Default color. Default value is UIColor.whiteColor().
     public static var DEFAULT_COLOR = UIColor.whiteColor()
     
+    /// Default color. Default value is UIColor.whiteColor().
+    public static var DEFAULT_BACKGROUND_COLOR = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
+    
     /// Default padding. Default value is 0.
     public static var DEFAULT_PADDING: CGFloat = 0
     
@@ -344,6 +347,9 @@ public class NVActivityIndicatorView: UIView {
     /// Color of activity indicator view.
     @IBInspectable public var color: UIColor = NVActivityIndicatorView.DEFAULT_COLOR
 
+    /// Color of activity indicator view.
+    @IBInspectable public var dimBackgroundColor: UIColor = NVActivityIndicatorView.DEFAULT_BACKGROUND_COLOR
+    
     /// Padding of activity indicator view.
     @IBInspectable public var padding: CGFloat = NVActivityIndicatorView.DEFAULT_PADDING
 
@@ -380,10 +386,11 @@ public class NVActivityIndicatorView: UIView {
      
      - returns: The activity indicator view.
      */
-    public init(frame: CGRect, type: NVActivityIndicatorType? = nil, color: UIColor? = nil, padding: CGFloat? = nil) {
+    public init(frame: CGRect, type: NVActivityIndicatorType? = nil, color: UIColor? = nil, backgroundColor: UIColor? = nil, padding: CGFloat? = nil) {
         self.type = type ?? NVActivityIndicatorView.DEFAULT_TYPE
         self.color = color ?? NVActivityIndicatorView.DEFAULT_COLOR
         self.padding = padding ?? NVActivityIndicatorView.DEFAULT_PADDING
+        self.dimBackgroundColor = backgroundColor ?? NVActivityIndicatorView.DEFAULT_BACKGROUND_COLOR
         super.init(frame: frame)
     }
     
